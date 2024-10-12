@@ -5,6 +5,7 @@ import FolderIcon from "./ImgsSidebar/folder.svg"
 import Tools from "./ImgsSidebar/settings.svg"
 import Menu from "./ImgsSidebar/menu.svg"
 import {Link} from "react-router-dom";
+import SideNotes from "../SideNotes/SideNotes";
 
 function Sidebar(props) {
 
@@ -60,6 +61,8 @@ function Sidebar(props) {
                         </li>
                     </ul>
                 </div>
+
+                <SideNotes />
             </nav>
         </>
     );

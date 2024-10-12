@@ -26,9 +26,14 @@ export const noteSlice = createSlice({
         ],
     },
     reducers: {
-
+        deleteNote: (state, action) => {
+            const newNotesArr = [...state.notes].filter(note => note.id !== action.payload)
+            state.notes = newNotesArr;
+        }
     },
 })
 
-const {  } = noteSlice.actions
+const { deleteNote  } = noteSlice.actions
+
+export {deleteNote};
 
