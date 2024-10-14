@@ -1,3 +1,4 @@
+// Composant de gestion de la navigation avec menu lateral
 import React, {useEffect, useState} from 'react';
 import "./Sidebar.css"
 import LogoEdit from "./ImgsSidebar/edit.svg"
@@ -8,9 +9,9 @@ import {Link} from "react-router-dom";
 import SideNotes from "../SideNotes/SideNotes";
 
 function Sidebar(props) {
-
+    // state de gestion de la largeur de l'ecran
     const [checkWidth, setCheckWidth] = useState(window.innerWidth);
-
+    // Fonction d'ajustement de la valeur du state lors de la modification de la largeur de l'ecran
     const checkWidthFunc = () => {
         setCheckWidth(window.innerWidth);
     }
@@ -22,7 +23,7 @@ function Sidebar(props) {
             window.removeEventListener('resize', checkWidthFunc)
         }
     }, []);
-
+    // state de gestion de l'apparition du boutton de navigation
     const [toggleNav, setToggleNav] = useState(false)
 
     const toggleNavFunc = () => {

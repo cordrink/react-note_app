@@ -1,9 +1,12 @@
+// composant de gestion de l'apparition d'une note
 import React from 'react';
 import "./Note.css";
 import delIcon from "./remove.svg";
 import edit from "./edit.svg";
 import {useDispatch} from "react-redux";
 import {deleteNote} from "../../../store/note/note-slice";
+import {Link} from "react-router-dom";
+import {visualizeNote} from "../../../store/selected/selected-slice";
 
 function Note({note}) {
 
@@ -18,6 +21,10 @@ function Note({note}) {
         dispatch(deleteNote(note.id));
     }
 
+    const modifyNote = () => {
+        dispatch(visualizeNote({...note, toggle: true}));
+    }
+
     return (
         <li className={"txt-note-prev"}>
             <div className="bloc-note-left">
@@ -25,12 +32,14 @@ function Note({note}) {
                 <p>{note.subtitle}</p>
             </div>
             <div className="bloc-note-right">
-                <button onClick={delNote} >
+                <button onClick={delNote}>
                     <img src={delIcon} alt="delete-icon"/>
                 </button>
-                <button>
-                    <img src={edit} alt="edit-icon"/>
-                </button>
+                <Link to={'/edit'}>
+                    <button onClick={modifyNote}>
+                        <img src={edit} alt="edit-icon"/>
+                    </button>
+                </Link>
             </div>
         </li>
     );

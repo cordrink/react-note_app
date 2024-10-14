@@ -35,11 +35,21 @@ export const noteSlice = createSlice({
             newNotesArr.push(action.payload);
 
             state.notes = newNotesArr;
+        },
+        updateNote: (state, action) => {
+            const newNotesArr = [...state.notes];
+            const newObj = action.payload;
+
+            const index = newNotesArr.findIndex(note => note.id === newObj.id);
+
+            newNotesArr.splice(index, 1, newObj);
+
+            state.notes = newNotesArr;
         }
     },
 })
 
-const { deleteNote, addNote  } = noteSlice.actions
+const { deleteNote, addNote, updateNote } = noteSlice.actions
 
-export {deleteNote, addNote};
+export {deleteNote, addNote, updateNote};
 
