@@ -27,10 +27,12 @@ function Note({note}) {
 
     return (
         <li className={"txt-note-prev"}>
-            <div className="bloc-note-left">
-                <p>{note.title}</p>
-                <p>{note.subtitle}</p>
-            </div>
+            <Link to={`/displayNote/${note.title}`}>
+                <div className="bloc-note-left">
+                    <p>{note.title}</p>
+                    <p>{note.subtitle}</p>
+                </div>
+            </Link>
             <div className="bloc-note-right">
                 <button onClick={delNote}>
                     <img src={delIcon} alt="delete-icon"/>

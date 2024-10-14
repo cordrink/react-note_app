@@ -7,6 +7,7 @@ import store from './store/index';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import ListNotes from "./Components/ListNotes/ListNotes";
 import MainArea from "./Components/MainArea/MainArea";
+import DisplayNote from "./Components/DisplayNote/DisplayNote";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -16,6 +17,7 @@ root.render(
                 <Route path="/" element={<App/>} >
                     <Route index element={<ListNotes /> }  />
                     <Route path={"/edit"} element={<MainArea /> }  />
+                    <Route path={"/displayNote/:id"} element={<DisplayNote /> } />
                 </Route>
             </Routes>
         </BrowserRouter>
